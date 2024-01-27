@@ -1,26 +1,5 @@
 # LaTeX
 
-```{r setup, include=FALSE}
-opts_chunk$set(echo = FALSE,
-               comment = NA,
-               results = "asis",
-               error = FALSE,
-               warning = FALSE,
-               message = FALSE)
-a <- "```tex"
-b <- "```"
-```
-```{r, include=FALSE}
-file.remove("child.Rmd")
-tmp <- readLines("template.Rmd")
+Este repositório conterá algumas modelos e testes que fui realizando ao londo do tempo em LaTeX.
 
-pdf <- sub(x = list.files(path = "./", pattern = "*.pdf"),
-           pattern = "\\.pdf$",
-           replacement = "")
-
-```
-
-teste de texto
-
-```{r, child = "child.Rmd"}
-```
+- ![Modelo de Apresentação do Laboratório](/modelo_beamer_larca/modelo_beamer.pdf)
