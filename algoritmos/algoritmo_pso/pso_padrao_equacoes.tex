@@ -1,0 +1,55 @@
+% Copyright 2024 by Marcos Laureano (marcos.laureano@ifpr.edu.br)
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,mathtools,lmodern,amssymb}
+
+
+\usepackage[portuguese,algochapter,linesnumbered,inoutnumbered]{algorithm2e}
+
+\SetKw{Kwpasso}{passo}
+
+\SetKwProg{Fn}{Função}{}{}
+
+\begin{document}
+%    
+%    
+\begin{algorithm}
+Passo 1. Inicialização\\
+\Inicio{ 
+   \ParaCada{partícula \(i \in 1,...,N_p\)}{
+      Inicializa posição da partícula distribuído de forma uniforme sendo $P_i(0) \thicksim    U(LB,UB)$, onde LB e UB representa os limites da parte 
+baixa e alta do espaço de busca\\
+      \BlankLine
+      Inicializa \emph{pbest} para a posição inicial: $pbest(i,0)=P_i(0)$\\
+      Inicializa \emph{gbest} para o menor valor do enxame: $gbest(0)=arg min f[P_i(0)]$\\
+      Inicializa a velocidade: $V_i\thicksim U(-|UB-LB|, |UB-LB|)$
+   } %ParaCada
+} %Inicio
+\BlankLine
+Passo 2. Repete até o critério ser alcançado\\
+\Inicio{
+   \ParaCada{partícula \(i \in 1,...,N_p\)}{
+      Escolha aleatoriamente: $r_1,r_2 \thicksim U(0,1)$\\
+      \BlankLine
+      Atualiza a velocidade da partícula: $V_i(t+1) = \omega V_i(t) + c_1 r_1 ( pbest(i,t) - P_i(t) ) + c_2 r_2( gbest(t)-P_i(t) )$\\
+      \BlankLine
+      Atualiza a posição da partícula: $P_i(t+1)=P_i(t) +V_i(t+1)$\\
+      \BlankLine
+      \Se{$f[P_i(t)] < f[pbest(i,t)]$}{
+         Atualiza a melhor posição conhecida da partícula i: $pbest(i,t) = P_i(t)$\\
+         \Se{ $f[P_i(t)] < f[gbest(t)]$}{
+            Atualiza a melhor posição do enxame: $gbest(t) = P_i(t)$
+         }
+         $t \leftarrow (t+i)$
+      }
+   }
+}
+\BlankLine
+Passo 3. \Retorna $(gbest(t))$ como a melhor solução
+\end{algorithm}
+\end{document}

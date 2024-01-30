@@ -1,0 +1,84 @@
+% Copyright 2024 by Marcos Laureano (marcos.laureano@ifpr.edu.br)
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{colorbrewer}
+%\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{statistics}
+\usetikzlibrary{backgrounds}
+\pgfplotstableread{%
+Author min avg max mediana deviation
+ClercA 100.1900 131.5194 180.2100 130.2000 16.0537
+ClercB 100.1900 131.9290 190.2000 130.2000 15.6576
+ClercC 100.1900 145.2007 210.2000 140.2100 17.3981
+ClercD 100.1900 113.8061 150.2100 110.2000 10.8342
+ClercE 100.1900 131.7290 180.2000 130.2000 15.7357
+EberhartA 100.1900 129.8890 170.2100 130.2000 15.8132
+EberhartB 100.1900 127.4685 170.2000 130.1900 14.4167
+EberhartC 100.2000 142.6508 190.2100 140.2000 16.6241
+EberhartD 100.1800 113.9665 150.2100 110.2000 11.2164
+EberhartE 100.1900 129.6588 190.2100 130.2000 15.0647
+XinA 100.1900 126.8997 170.2000 130.2000 14.3637
+XinB 100.1900 124.3386 170.2000 130.1900 13.5221
+XinC 100.1900 137.3308 190.2000 130.2100 16.0478
+XinD 100.1800 113.8771 160.2000 110.2000 11.1794
+XinE 100.1800 126.7993 180.2100 130.1900 14.4938
+}\datatable
+
+\begin{document}
+
+\begin{tikzpicture}[framed]
+\pgfplotstablegetrowsof{\datatable}
+\pgfmathtruncatemacro{\rownumber}{\pgfplotsretval-1}
+\begin{axis}[boxplot/draw direction=y,
+xticklabels={ClercA,ClercB,ClercC,ClercD,ClercE,EberhartA, EberhartB, EberhartC, EberhartD, EberhartE,XinA, XinB, XinC, XinD, XinE},
+xtick={1,...,\the\numexpr\rownumber+1},
+x tick label style={scale=0.5,font=\bfseries, rotate=60,align=center},
+ylabel={fitness},cycle list/Set1-5 ]
+
+
+\pgfplotsinvokeforeach{0,...,\rownumber}{
+    
+    \pgfplotstablegetelem{#1}{min}\of\datatable
+    \edef\mymin{\pgfplotsretval}
+    
+    \pgfplotstablegetelem{#1}{avg}\of\datatable
+    \edef\myavg{\pgfplotsretval}
+    
+    \pgfplotstablegetelem{#1}{max}\of\datatable
+    \edef\mymax{\pgfplotsretval}
+    
+    \pgfplotstablegetelem{#1}{mediana}\of\datatable
+    \edef\mymediana{\pgfplotsretval}
+    
+    \pgfplotstablegetelem{#1}{deviation}\of\datatable
+    \edef\mydeviation{\pgfplotsretval}
+    
+    \typeout{\mymin,\mymax,\myavg,\mymediana,\mydeviation}
+    \pgfmathsetmacro{\mylowerq}{\mymediana-\mydeviation}
+    \pgfmathsetmacro{\myupperq}{\mymediana+\mydeviation}
+    \edef\temp{\noexpand\addplot+[,
+        boxplot prepared={
+            lower whisker=\mymin,
+            upper whisker=\mymax,
+            lower quartile=\mylowerq,
+            upper quartile=\myupperq,
+            median=\myavg,
+            every box/.style={solid,fill,opacity=0.5},
+            every whisker/.style={solid },
+            every median/.style={solid},
+        }, 
+        ]coordinates {};}
+    \temp
+}
+\end{axis}
+\end{tikzpicture}
+
+
+
+\end{document}

@@ -1,0 +1,71 @@
+﻿% Copyright 2024 by Marcos Laureano (marcos.laureano@ifpr.edu.br)
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{colorbrewer}
+\definecolor{c1}{RGB}{116,169,207}
+\definecolor{c2}{RGB}{43,140,190}
+
+\definecolor{c3}{RGB}{49,163,84}
+\definecolor{c4}{RGB}{212,185,218}
+\definecolor{c5}{RGB}{253,187,132}
+
+\tikzstyle{decisao} = [diamond, draw, fill=c5, 
+    text width=4.5em, text badly centered, node distance=3.5cm, inner sep=3pt, font=\bfseries]
+
+\tikzstyle{bloco1} = [rectangle, draw, fill=c1,     text width=8em, text centered, rounded corners, minimum height=4em, font=\bfseries]
+
+\tikzstyle{bloco2} = [rectangle, draw, fill=c2,     text width=8em, text centered, rounded corners, minimum height=4em, font=\bfseries]
+
+\tikzstyle{circulo} = [draw, ellipse,fill=c3, node distance=2cm,    minimum height=2em, font=\bfseries]
+
+\tikzstyle{circulo2} = [draw, ellipse,fill=c4, node distance=2cm,    minimum height=2em, font=\bfseries]
+
+\tikzstyle{line} = [draw, -latex']
+    
+\begin{tikzpicture}[node distance = 4.5cm, auto]
+
+ 
+   \node [bloco1] (inicio) {Otimização};
+  \node [decisao, below of=inicio] (decisao) {Finalizou a jogada?};
+   \path [line] (inicio) -- (decisao);
+   \node [circulo, right of=decisao, node distance=5cm] (psoo) {PSO Original};
+
+   \node [bloco2, right of=psoo] (metrica1)  {Aplica Métrica};
+   \path [line] (psoo) -- (metrica1);
+
+   \node [bloco1, below of=psoo, node distance=2.5cm ] (modifica)  {Modifica\\ Posicionamento};
+   \path [line] (psoo) -- (modifica);
+
+   \path [line] (decisao) -- node [font=\bfseries] {Sim} (psoo);
+
+   \node [circulo, right of=modifica, node distance=5cm] (psom) {PSO Modificado};
+   \path [line] (modifica) -- (psom);
+
+   \node [bloco2, right of=psom, node distance=5cm ] (metrica2)  {Aplica Métrica};
+   \path [line] (psom) -- (metrica2);
+
+   \node [bloco2, above of=inicio, node distance=2.5cm] (prepara) {Parâmetros PSO};
+   \path [line] (prepara) -- (inicio);
+
+   \node [circulo, above of=prepara](popula) {População};
+   \node [circulo, right of=prepara, node distance=5cm](posadv) {Adversários};
+   \path [line] (popula) -- (prepara);
+   \path [line] (posadv) -- (prepara);
+   \node [circulo2, above of=popula, node distance=2cm] (posorig) {Posicionamento Original};
+   \node [circulo2, right of=popula, node distance=5.5cm] (ultotm) {Última otimização};
+   \path [line] (posorig) -- (popula);
+  \path [line] (ultotm) -- (popula);
+
+   
+   \node [bloco1, above of=posorig, node distance=2cm] (inicio2) {Inicio};
+   \node [left of=inicio2, node distance=4cm, inner sep=-1pt] (no) {};
+   \node [below of=no, inner sep=-1pt] (no1) {};
+   \path [draw] (decisao) -| node [near start,font=\bfseries] {Não} (no1) ;
+   \path [draw] (no1)--(no);
+   \path [draw, -latex', inner sep=-1pt] (no)--(inicio2);
+   \path [line] (inicio2) -- (posorig);
+
+\end{tikzpicture}

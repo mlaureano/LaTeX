@@ -1,0 +1,59 @@
+﻿% Copyright 2024 by Marcos Laureano (marcos.laureano@ifpr.edu.br)
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+
+\usetikzlibrary{shapes,arrows}
+\definecolor{c1}{RGB}{67,176,0} %verde escuro
+\definecolor{c2}{RGB}{0,180,0} 
+\definecolor{c3}{RGB}{0,210,70}  %verde agua
+\definecolor{c4}{RGB}{160,176,0} %verde marron
+\definecolor{c5}{RGB}{200,196,183}  %cinza texto
+
+
+\definecolor{cseta1}{RGB}{67,176,0} %verdinho claro
+\definecolor{cseta2}{RGB}{0,180,0} %verde
+\definecolor{cseta3}{RGB}{0,210,70} 
+\definecolor{cseta4}{RGB}{160,176,0} 
+
+\tikzstyle{d1} = [rectangle, draw=c1, fill=c1, text width=5em, text centered, rounded corners, minimum height=4em, font=\bfseries]
+\tikzstyle{d2} = [rectangle, draw=c2, fill=c2, text width=5em, text centered, rounded corners, minimum height=4em, font=\bfseries]
+\tikzstyle{d3} = [rectangle, draw=c3, fill=c3, text width=5em, text centered, rounded corners, minimum height=4em, font=\bfseries]
+\tikzstyle{d4} = [rectangle, draw=c4, fill=c4, text width=5em, text centered, rounded corners, minimum height=4em, font=\bfseries]
+
+\tikzstyle{dtexto} = [rectangle, , text centered, rounded corners, minimum height=2em, text=c5, font=\bfseries]
+\tikzstyle{linha} = [draw, -latex, line width=2pt]
+\def\tkzscl{1}
+%\begin{tikzpicture}[node distance = 3cm, auto]
+\begin{tikzpicture}[node distance = 2cm, auto,scale=\tkzscl]
+   \node [d1] (penalti) {P\^ENALTI};
+   \node [dtexto, above of=penalti] (pgerar) {Pode  Gerar};
+   \path [linha,cseta1] (penalti) -- (pgerar);
+  \node [d2, above of=pgerar] (tirometa) {Tiro de Meta};
+  \path [linha, cseta2] (pgerar) -- (tirometa);
+
+  \node [d2, left of=pgerar, node distance=3.5cm] (gol) {Gol};
+  \path [linha, cseta2] (pgerar) -- (gol);
+
+  \node [d2, right of=pgerar, node distance=3.5cm] (rebote) {Rebote};
+   \path [linha, cseta2] (pgerar) -- (rebote);
+
+  \node [below of=penalti,node distance=1cm] (vazio) {}; %para ajustar as setas
+ % \path [draw,line width=2pt, cseta1] (penalti) -- (vazio);
+
+  \node[dtexto, below left of=vazio](inclui) {Inclui};
+  \node[dtexto, below right of=vazio](vemapos) {Vem ap{\'o}s uma};
+
+  \path [linha, cseta1] (vazio) -- (inclui);
+  \path [linha, cseta1] (vazio) -- (vemapos);
+
+  \node[d3, below of=inclui] (chute){Chute};
+   \node[d3, below of=vemapos] (infracao){Infra\c{c}\~ao};
+
+  %\path[linha, cseta3] (inclui) -- (chute);
+ \path[linha, cseta3] (inclui.south) -- (chute.north);
+  \path[linha, cseta3] (vemapos) -- (infracao);
+\end{tikzpicture}
+
+

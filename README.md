@@ -22,9 +22,27 @@ Este repositório conterá algumas modelos e testes que fui realizando ao londo 
 
 ## Exemplos de figuras animadas
 > [!TIP]
-> Temos exemplo utilizando uma sequência de figuras do quicksort e outra utilizando o ambiente matemático puro (sem necessidades de figuras externas).
+> Temos exemplos utilizando uma sequência de figuras do quicksort e outra utilizando o ambiente matemático puro (sem necessidades de figuras externas).
 
 [Figura animada com ambiente matemático](figuras_animadas/deslocamento_bits/)
 
-[Figura animada utilizando sequência de imagens](figuras_animadas/gif_animado_quicksort)
+[Figura animada utilizando sequência de imagens](figuras_animadas/gif_animado_quicksort/)
+
+## Exemplos de algoritmos
+> [!TIP]
+> É utilizado o pacote algorithm2e para a criação dos algoritmos. Ele já tem suporte para língua portuguesa.
+
+[Algoritmo PSO com equações](algoritmos/algoritmo_pso/)
+
+## Exemplos de gráficos
+> [!TIP]
+> Incluindo o gráfico de Whisker, que é um gráfico com mínimo, média, máximo, mediana e desvio padrão.
+
+[Gráficos de Whisker ](graficos/whisker/)
+
+## Exemplos com tikz
+> [!TIP]
+> Necessário utilizar o QtikZ para editar arquivos .tikz ou criar um .tex específico incluindo todos os pacotes necessários.
+
+[Fluxograma utilizando tikz](tikz/fluxograma/)
 
