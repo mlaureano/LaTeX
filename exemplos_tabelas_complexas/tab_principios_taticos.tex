@@ -1,0 +1,277 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs,
+	makecell,
+	multirow,
+	tabularx}
+
+\usepackage{adjustbox}
+\usepackage{fontawesome}
+
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{}
+\renewcommand\cellrotangle{-90}
+\usepackage{enumitem}
+
+\begin{document}
+\begin{table}
+	\setlist[itemize]{nosep,wide}
+	\setlist[1]{align=left,leftmargin=0.3cm,labelsep=0.5em,label=\normalfont\bfseries --,labelwidth=0.1cm}
+	
+	\centering
+    \begingroup
+    \fontsize{7pt}{7pt}\selectfont
+	\begin{tabularx}{\linewidth}{@{}c L c L @{}}
+        
+		\toprule
+		\makecell[bc]{Princípios\\ Gerais}
+		& \makecell[bc]{Tentar Criar\\ superioridade numérica}
+		& \makecell[bc]{Evitar a\\ igualdade\\ numérica}
+		& \makecell[bc]{Não permitir a\\ inferioridade numérica}    \\
+		\midrule
+		Fases
+		& \thead{Ataque (com posse de bola)}
+		& \multirow{66}{*}{\rotatebox{-90}{\huge Transição Defesa-ataque e/ou Ataque-defesa}}
+		& \thead{Defesa (sem posse de bola)}                        \\
+		\cmidrule(r){1-2} \cmidrule(l){4-4}
+		\makecell[l]{Princípios \\ Opera-\\ cionais}
+		& \makecell[l]{Conservar a bola;\\
+			Construir ações ofensivas;\\
+			Progredir pelo campo do jogo adversário;\\
+			Criar situações de finalização;\\
+			Finalizar a baliza adversária.}
+		&   & \makecell[l]{Impedir a progressão do adversário;\\
+			Reduzir o espaço de jogo adversário;\\
+			Proteger a baliza;\\
+			Anular as situações de finalização;\\
+			Recuperar a bola.}                           \\
+		\cmidrule(r){1-2} \cmidrule(l){4-4}
+		\rotatebox[origin=r]{-90}{\huge Princípios Fundamentais}
+		& \begin{tabular}[b]{@{}>{\centering\arraybackslash}p{\linewidth}@{}}
+			\thead{Penetração}
+			\begin{itemize}
+				\item Desestabilizar a organização adversária;
+				\item Atacar diretamente o adversário ou baliza;
+				\item Criar situações vantajosas para o ataque em termos numéricos e espaciais.
+			\end{itemize}   \\
+			\midrule
+			\thead{Cobertura Ofensiva}
+			\begin{itemize} 
+				\item Dar apoio ao portador da bola oferecendo-lhe opções para a sequência do jogo;
+				\item Diminuir a pressão adversária sobre o portador da bola;
+				\item Criar superioridade numérica;
+				\item Criar desequílibrio na organização defensiva adversária;
+				\item Garantir a manutenção da posse de bola.
+			\end{itemize}   \\
+			\midrule
+			\thead{Mobilidade}
+			\begin{itemize}
+				\item Criar ações de ruptura da organização defensiva adversária;
+				\item Apresentar-se em um espaço muito propício para a consecução do gol;
+				\item Criar linhas de passe em profundidade;
+				\item Conseguir o domínio da bola para dar sequência a ação ofensiva (passe ou finalização).
+			\end{itemize}   \\
+			\midrule
+			\thead{Espaço}
+			\begin{itemize}
+				\item Utilizar e ampliar o espaço de jogo efetivo da equipe;
+				\item Expandir as distâncias/posicionamentos entre os jogadores adversários;
+				\item Dificultar as ações de marcação da equipe adversária;
+				\item Facilitar as ações ofensivas da equipe;
+				\item Movimentar para um espaço de menor pressão;
+				\item Ganhar "tempo" para tomar a decisão correta para dar sequência no jogo;
+				\item Procurar opções mais seguras, através dos jogadores posicionados mais defensivamente, para dar sequência ao jogo.
+			\end{itemize}   \\
+			\midrule
+			\thead{Unidade Ofensiva}
+			\begin{itemize}
+				\item Facilitar o deslocamento da equipe para o campo de jogo adversário;
+				\item Permitir a equipe atacar em unidade ou em bloco;
+				\item Oferecer mais segurança as ações ofensivas realizadas no centro do jogo;
+				\item Propiciar que mais jogadores se posionem no centro do jogo;
+				\item Diminuir o espaço de jogo no campo defensivo.
+			\end{itemize}
+		\end{tabular}
+		&   &   \begin{tabular}[b]{@{}>{\centering\arraybackslash}p{\linewidth}@{}}
+			\thead{Contenção}                                         
+			\begin{itemize}
+				\item Diminuir espaço de ação ofensiva do portador da bola;
+				\item Orientar a progressão do portador da bola;
+				\item Parar ou atrasar o ataque ou contra-ataque adversário;
+				\item Propiciar maior tempo para organização defensiva;
+				\item Restringir as possibilidades de passe a outro jogador adversário;
+				\item Evitar o drible que favoreça progressão pelo campo de jogo em direção ao gol;
+				\item Impedir a finalização à baliza.
+			\end{itemize}    \\
+			\midrule
+			\thead{Cobertura defensiva}
+			\begin{itemize}
+				\item Servir de novo obstáculo ao portador da bola, caso esse passe pelo jogador de contenção;
+				\item Transmitir segurança e confiança ao jogador de contenção para que ele tenha iniciativa de combate às ações ofensivas do portador da bola;
+			\end{itemize}    \\
+			\midrule
+			\thead{Equilíbrio}
+			\begin{itemize}
+				\item Assegurar a estabilidade defensiva da região de disputa da bola;
+				\item Apoiar os companheiros que executam as ações de contenção e cobertura defensiva;
+				\item Cobrir eventuais linhas de passe;
+				\item Marcar potenciais jogadores que podem receber a bola;
+				\item Fazer recuperação defensiva sobre o portador da bola;
+				\item Recuperar ou afastar a bola da zona onde ela se encontra.
+			\end{itemize}    \\
+			\midrule
+			\thead{Concentração}
+			\begin{itemize}
+				\item Aumentar a proteção ao gol;
+				\item Condicionar o jogo ofensivo adversário para zonas de menor risco do campo de jogo;
+				\item Propiciar aumento de pressão no centro do jogo.
+			\end{itemize}    \\
+			\midrule
+			\thead{Unidade defensiva}
+			\begin{itemize}
+				\item Permitir a equipe defender em unidade ou em bloco;
+				\item Garantir estabilidade espacial e sincronia dinâmica entre as linhas longitudinais e transversais da equipe em ações ofensivas;
+				\item Diminuir a amplitude ofensiva da equipe adversária na sua largura e profundidade;
+				\item Assegurar linhas orientadoras básicas que influenciam as atitudes e os comportamentos tático-técnicos dos jogadores que se posicionam fora do centro de jogo;
+				\item Equilibrar ou reequilibrar constantemente a repartição de forças da organização defensiva consoante às situações momentâneas de jogo;
+				\item Reduzir o espaço de jogo utilizando a regra do impedimento;
+				\item Obstruir  possíveis linhas de passe para jogadores que se encontram  fora do centro de jogo;
+				\item Possibilitar a participação em uma ação defensiva subsequente;
+				\item Propiciar que mais jogadores se posicionem no centro de jogo.
+			\end{itemize}
+		\end{tabular}    \\
+		\bottomrule
+	\end{tabularx}
+    \endgroup
+\end{table}
+
+\pagebreak
+    \begin{table}[p]
+\setlist[itemize]{nosep,wide}
+    \centering
+\caption{Princípios Táticos do Jogo de Futebol}
+    \tiny
+\begin{tabularx}{\linewidth}{@{}c L c L @{}}
+    \toprule
+\makecell[bc]{Princípios\\ Gerais}
+    & \makecell[bc]{Tentar Criar\\ superioridade numérica}
+        & \makecell[bc]{Evitar a\\ igualdade\\ numérica}
+            & \makecell[bc]{Não permitir a\\ inferioridade numérica}    \\
+    \midrule
+Fases
+    & \thead{Ataque (com posse de bola)}
+        & \multirow{66}{*}{\rotatebox{-90}{\huge Transição Defesa-ataque e/ou Ataque-defesa}}
+            & \thead{Defesa (sem posse de bola)}                        \\
+    \cmidrule(r){1-2} \cmidrule(l){4-4}
+\makecell[l]{Princípios \\ Opera-\\ cionais}
+    & \makecell[l]{Conservar a bola;\\
+                   Construir ações ofensivas;\\
+                   Progredir pelo campo do jogo adversário;\\
+                   Criar situações de finalização;\\
+                   Finalizar a baliza adversária.}
+        &   & \makecell[l]{Impedir a progressão do adversário;\\
+                           Reduzir o espaço de jogo adversário;\\
+                           Proteger a baliza;\\
+                           Anular as situações de finalização;\\
+                           Recuperar a bola.}                           \\
+    \cmidrule(r){1-2} \cmidrule(l){4-4}
+\rotatebox[origin=r]{-90}{\huge Princípios Fundamentais}
+    & \begin{tabular}[b]{@{}>{\centering\arraybackslash}p{\linewidth}@{}}
+        \thead{Penetração}
+    \begin{itemize}
+    \item Desestabilizar a organização adversária;
+    \item Atacar diretamente o adversário ou baliza;
+    \item Criar situações vantajosas para o ataque em termos numéricos e espaciais.
+    \end{itemize}   \\
+    \midrule
+        \thead{Cobertura Ofensiva}
+    \begin{itemize}
+    \item Dar apoio ao portador da bola oferecendo-lhe opções para a sequência do jogo;
+    \item Diminuir a pressão adversária sobre o portador da bola;
+    \item Criar superioridade numérica;
+    \item Criar desequílibrio na organização defensiva adversária;
+    \item Garantir a manutenção da posse de bola.
+    \end{itemize}   \\
+    \midrule
+        \thead{Mobilidade}
+    \begin{itemize}
+    \item Criar ações de ruptura da organização defensiva adversária;
+    \item Apresentar-se em um espaço muito propício para a consecução do gol;
+    \item Criar linhas de passe em profundidade;
+    \item Conseguir o domínio da bola para dar sequência a ação ofensiva (passe ou finalização).
+    \end{itemize}   \\
+    \midrule
+        \thead{Espaço}
+    \begin{itemize}
+    \item Utilizar e ampliar o espaço de jogo efetivo da equipe;
+    \item Expandir as distâncias/posicionamentos entre os jogadores adversários;
+    \item Dificultar as ações de marcação da equipe adversária;
+    \item Facilitar as ações ofensivas da equipe;
+    \item Movimentar para um espaço de menor pressão;
+    \item Ganhar "tempo" para tomar a decisão correta para dar sequência no jogo;
+    \item Procurar opções mais seguras, através dos jogadores posicionados mais defensivamente, para dar sequência ao jogo.
+        \end{itemize}   \\
+    \midrule
+        \thead{Unidade Ofensiva}
+    \begin{itemize}
+    \item Facilitar o deslocamento da equipe para o campo de jogo adversário;
+    \item Permitir a equipe atacar em unidade ou em bloco;
+    \item Oferecer mais segurança as ações ofensivas realizadas no centro do jogo;
+    \item Propiciar que mais jogadores se posionem no centro do jogo;
+    \item Diminuir o espaço de jogo no campo defensivo.
+    \end{itemize}
+    \end{tabular}
+        &   &   \begin{tabular}[b]{@{}>{\centering\arraybackslash}p{\linewidth}@{}}
+                \thead{Contenção}                                         \\
+           \begin{itemize}
+           \item Diminuir espaço de ação ofensiva do portador da bola;
+           \item Orientar a progressão do portador da bola;
+           \item Parar ou atrasar o ataque ou contra-ataque adversário;
+           \item Propiciar maior tempo para organização defensiva;
+           \item Restringir as possibilidades de passe a outro jogador adversário;
+           \item Evitar o drible que favorece progressão pelo campo de jogo em direção ao gol;
+           \item Impedir a finalização à baliza.
+           \end{itemize}    \\
+           \midrule
+                \thead{Cobertura defensiva}
+           \begin{itemize}
+           \item Servir de novo obstáculo ao portador da bola, caso esse passe pelo jogador de contenção;
+           \item Transmitir segurança e confiança ao jogador de contenção para que ele tenha iniciativa de combate às ações ofensivas do portador da bola;
+           \end{itemize}    \\
+           \midrule
+                \thead{Equilíbrio}
+           \begin{itemize}
+           \item Assegurar a estabilidade defensiva da região de disputa da bola;
+           \item Apoiar os companheiros que executam as ações de contenção e cobertura defensiva;
+           \item Cobrir eventuais linhas de passe;
+           \item Marcar potenciais jogadores que podem receber a bola;
+           \item Fazer recuperação defensiva sobre o portador da bola;
+           \item Recuperar ou afastar a bola da zona onde ela se encontra.
+           \end{itemize}    \\
+           \midrule
+                \thead{Concentração}
+           \begin{itemize}
+           \item Aumentar a proteção ao gol;
+           \item Condicionar o jogo ofensivo adversário para zonas de menor risco do campo de jogo;
+           \item Propiciar aumento de pressão no centro do jogo.
+           \end{itemize}    \\
+           \midrule
+                \thead{Unidade defensiva}
+           \begin{itemize}
+           \item Permitir a equipe defender em unidade ou em bloco;
+           \item Garantir estabilidade espacial e sincronia dinâmica entre as linhas longitudinais e transversais da equipe em ações ofensivas;
+           \item Diminuir a amplitude ofensiva da equipe adversária na sua largura e profundidade;
+           \item Assegurar linhas orientadoras básicas que influenciam as atitudes e os comportamentos tático-técnicos dos jogadores que se posicionam fora do centro de jogo;
+           \item Equilibrar ou reequilibrar constantemente a repartição de forças da organização defensiva consoante às situações momentâneas de jogo;
+           \item Reduzir o espaço de jogo utilizando a regra do impedimento;
+           \item Obstruir  possíveis linhas de passe para jogadores que se encontram  fora do centro de jogo;
+           \item Possibilitar a participação em uma ação defensiva subsequente;
+           \item Propiciar que mais jogadores se posicionem no centro de jogo.
+           \end{itemize}
+           \end{tabular}    \\
+           \bottomrule
+\end{tabularx}
+\end{table}
+\end{document}

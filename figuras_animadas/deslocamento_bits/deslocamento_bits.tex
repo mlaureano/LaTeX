@@ -1,0 +1,152 @@
+\documentclass[10pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc} 
+\usepackage{animate}
+\usepackage{color}
+\usepackage{tikz}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{figure}[ht]
+\caption{Deslocamento de 5 bits para $\leftarrow$ e depois 4 bits para $\rightarrow$.}
+\label{fig_deslocamento_bits01}
+
+\begin{center}
+\begin{animateinline}[loop, poster = first, controls={play, stop, step}]{0.5}
+
+$\begin{matrix}
+	\textcolor{red}{\mathbf{1}} & 
+	\textcolor{red}{\mathbf{1}} & 
+	\textcolor{red}{\mathbf{0}} & 
+	\textcolor{red}{\mathbf{1}} & 
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} \\
+  &   &   &   & \leftarrow & \leftarrow & \leftarrow &\leftarrow \\
+\end{matrix}$
+
+	\newframe
+$\begin{matrix}
+	\textcolor{red}{\mathbf{1}} & 
+	\textcolor{red}{\mathbf{0}} & 
+	\textcolor{red}{\mathbf{1}} & 
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{green}{\mathbf{0}} \\	
+     &   &   & \leftarrow & \leftarrow & \leftarrow &\leftarrow &\\
+\end{matrix}$
+	\newframe
+
+$\begin{matrix}
+	\textcolor{red}{\mathbf{0}} & 
+	\textcolor{red}{\mathbf{1}} & 
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{green}{\mathbf{0}} & 	
+	\textcolor{green}{\mathbf{0}} \\	
+	  &   & \leftarrow & \leftarrow & \leftarrow & \leftarrow &   &\\
+	\end{matrix}$
+
+	\newframe
+$\begin{matrix}
+	\textcolor{red}{\mathbf{1}} & 
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{green}{\mathbf{0}} & 	
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} \\	
+	  & \leftarrow & \leftarrow & \leftarrow & \leftarrow &   &   &\\ 
+	\end{matrix}$
+
+	\newframe
+$	\begin{matrix}
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{green}{\mathbf{0}} & 	
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} \\	
+	\leftarrow & \leftarrow & \leftarrow & \leftarrow &   &   &   &\\
+	\end{matrix}$
+
+	\newframe
+$	\begin{matrix}
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{green}{\mathbf{0}} & 	
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} &		
+	\textcolor{green}{\mathbf{0}} \\	
+	\leftarrow & \leftarrow & \leftarrow &   &   &   &  & \\
+	\end{matrix}$
+	
+	\newframe
+$	\begin{matrix}
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{green}{\mathbf{0}} & 	
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} \\	
+	 & \rightarrow & \rightarrow & \rightarrow &   &   &   & \\
+	\end{matrix}$
+
+	\newframe
+$	\begin{matrix}
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} \\	
+	& & \rightarrow & \rightarrow & \rightarrow &   &   &  \\ 
+	\end{matrix}$
+
+	\newframe
+$	\begin{matrix}
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{green}{\mathbf{0}} &	
+	\textcolor{green}{\mathbf{0}} \\	
+    & & & \rightarrow & \rightarrow & \rightarrow &   &  \\   
+	\end{matrix}$
+
+	\newframe
+$	\begin{matrix}
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{orange}{\mathbf{0}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{blue}{\mathbf{1}} &	
+	\textcolor{blue}{\mathbf{1}} &
+	\textcolor{green}{\mathbf{0}} \\	
+    & & & & \rightarrow & \rightarrow & \rightarrow &     \\   
+	\end{matrix}$
+
+\end{animateinline}
+\end{center}
+
+\end{figure}
+\end{document}

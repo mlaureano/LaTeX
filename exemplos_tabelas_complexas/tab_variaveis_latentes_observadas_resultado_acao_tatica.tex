@@ -1,0 +1,39 @@
+\documentclass{memoir}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs,
+	makecell,
+	multirow,
+	tabularx}
+
+\newcolumntype{D}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{E}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+\begin{table}
+\centering
+     \begingroup
+\fontsize{10pt}{10pt}\selectfont
+\begin{tabularx}{\linewidth}{@{}lllD{7cm}@{}}
+\toprule
+\textbf{Categorias}                                   & \textbf{Sub-categorias}    & \textbf{Variáveis Latentes}           & \textbf{Variáveis Observadas}             \\ \midrule
+\multirow{4}{3cm}{Localização da ação no Campo de Jogo} & \multirow{2}{*}{Ofensivo}  & \multirow{2}{3cm}{Meio Campo Ofensivo}  & Ações Táticas Ofensiva                    \\
+                                                      &                            &                                       & Ações Táticas Defensivas                  \\ \cmidrule(l){2-4} 
+                                                      & \multirow{2}{*}{Defensivo} & \multirow{2}{3cm}{Meio Campo Defensivo} & Ações Táticas Ofensivas                   \\
+                                                      &                            &                                       & Ações Táticas Defensivas                  \\ \midrule
+\multirow{10}{*}{Resultado da Ação}                   & \multirow{5}{*}{Ofensiva}  & \multirow{5}{3cm}{Eficácia Ofensiva}    & Realizar finalização ao gol               \\
+                                                      &                            &                                       & Continuar com a posse de bola             \\
+                                                      &                            &                                       & Sofrer falta, ganhar lateral ou escanteio \\
+                                                      &                            &                                       & Cometer falta, ceder lateral ou escanteio \\
+                                                      &                            &                                       & Perder a posse de bola                    \\ \cmidrule(l){2-4} 
+                                                      & \multirow{5}{*}{Defensiva} & \multirow{5}{3cm}{Eficácia Defensiva}   & Recuperar a posse de bola                 \\
+                                                      &                            &                                       & Sofrer falta, ganhar lateral ou escanteio \\
+                                                      &                            &                                       & Cometer falta, ceder lateral ou escanteio \\
+                                                      &                            &                                       & Continuar sem a posse de bola             \\
+                                                      &                            &                                       & Sofrer finalização ao gol                 \\ \midrule
+                                                      &                            &                                       &                                          
+\end{tabularx}
+\endgroup
+\end{table}
+\end{document}
