@@ -1,0 +1,60 @@
+% Copyright 2024 by Marcos Laureano (marcos.laureano@ifpr.edu.br)
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+
+\documentclass{standalone}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{forest}
+\usetikzlibrary{trees,positioning,shapes,shadows,arrows.meta}
+\definecolor{PastelA}{RGB}{251,180,174}
+\definecolor{PastelB}{RGB}{179,205,227}
+\definecolor{PastelC}{RGB}{204,235,197}
+\definecolor{PastelD}{RGB}{222,203,228}
+
+\begin{document}
+\tikzset{
+    basic/.style  = {draw, text width=3cm, align=center, font=\sffamily, rectangle},
+    root/.style   = {basic, rounded corners=2pt, thin, align=center, fill=PastelA},
+    onode/.style = {basic, thin, rounded corners=2pt, align=center, fill=PastelA,text width=4cm,},
+    dnode/.style = {basic, thin, align=left, fill=PastelB, text width=4cm, align=center},
+    tnode/.style = {basic, thin, rounded corners=2pt, align=center, fill=PastelC,text width=7cm,},
+    wnode/.style = {basic, thin, align=left, fill=PastelD, text width=6.5em},
+    edge from parent/.style={draw=black, edge from parent fork right}
+
+}
+%
+
+\begin{forest} for tree={
+    grow=east,
+    growth parent anchor=west,
+    parent anchor=east,
+    child anchor=west,
+    edge path={\noexpand\path[\forestoption{edge},->, >={latex}] 
+         (!u.parent anchor) -- +(10pt,0pt) |-  (.child anchor) 
+         \forestoption{edge label};}
+}
+% lsep is used for arrow distance
+[Modificadores C++, onode,  l sep=10mm,
+    [Curto \, (short), dnode,  l sep=10mm,
+        [int, tnode]
+        ]
+    [Longo \, (long), dnode,  l sep=10mm,
+        [double, tnode, fill=PastelD]
+        [int, tnode, fill=PastelD]
+     ]
+    [Sem Sinal \, (unsigned), dnode,  l sep=10mm,
+        [short -- prefixo, tnode]
+        [char, tnode]
+        [int, tnode] 
+    ]
+    [Com sinal \, (signed), dnode,  l sep=10mm,
+        [long -- prefixo, tnode, fill=PastelD]
+        [char, tnode, fill=PastelD]
+        [int, tnode, fill=PastelD]
+    ] ]
+]\end{forest}
+
+\end{document}

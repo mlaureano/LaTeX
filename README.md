@@ -40,9 +40,24 @@ Este repositório conterá algumas modelos e testes que fui realizando ao londo 
 
 [Gráficos de Whisker ](graficos/whisker/)
 
+
+
+
 ## Exemplos com tikz
 > [!TIP]
 > Necessário utilizar o QtikZ para editar arquivos .tikz ou criar um .tex específico incluindo todos os pacotes necessários.
 
 [Fluxograma utilizando tikz](tikz/fluxograma/)
+
+> [!TIP]
+> Diagramas feitos com tikz, mas no formato standalone. Gera arquivo PDF que depois pode ser incluído como figura no documento principal.
+
+[Diagramas utilizando tikz](tikz/diagramas/)
+
+## Exemplos com outras figuras
+> [!TIP]
+> Necessário o pacote qtree
+
+[Árvore de expansão de Fibonacci](outras_figuras/arvores/fibonacci/)
+
 
