@@ -1,0 +1,227 @@
+% Copyright 2024 by Marcos Laureano (marcos.laureano@ifpr.edu.br)
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.\
+\documentclass[tikz, border=20pt]{standalone}
+\usepackage{mathptmx}
+\usepackage{circuitikz}
+\usetikzlibrary{positioning,shapes.gates.logic.US,arrows.meta}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+
+
+\begin{document}
+%    \begin{tikzpicture}[
+%        %Environment config
+%        font=\LARGE,
+%        thick,
+%        >={Stealth[length=12pt]},
+%        %Environment styles
+%        GateCfg/.style={
+%            logic gate inputs={normal,normal,normal},
+%            draw,
+%            scale=2,
+%            on grid % Distances from shape centers
+%        }
+%    ]
+%    \path % Place gate shapes using positioning commands
+%        node[and gate US,GateCfg](AND1){} 
+%        node[and gate US,GateCfg,below=3 of AND1](AND2){}
+%        node[and gate US,GateCfg,below=3 of AND2](AND3){} 
+%        node[or gate US,GateCfg, below right= 1.5 and 5 of AND2](OR1){}
+%        node[and gate US,GateCfg, below right= 0.5 and 5 of OR1](AND4){}
+%        node[or gate US,GateCfg, above right= 1 and 5 of AND4](OR2){}
+%        node[not gate US, draw,left=1 of AND2.input 1](N1){}
+%        node[not gate US, draw,left=1.5 of AND3.input 3](N2){};
+%
+%    \draw % Coordinate "temp" is redefined in each coordinate (temp) instruction 
+%        (OR2.output) 
+%            edge[->] ++(3,0)
+%        (AND4.output) 
+%            -- ++(1,0) coordinate (temp) |- (OR2.input 3) edge[<-]++(-10pt,0)
+%        (AND1.output)
+%            -- (AND1-| temp) |- (OR2.input 1) edge[<-]++(-10pt,0)
+%        (OR1.output) 
+%            edge[->] (OR1 -| AND4.input 1)
+%        (AND2.output)
+%            -- ++(2,0) coordinate(temp) |- (OR1.input 1) edge[<-]++(-10pt,0)
+%        (AND3.output)
+%            -- (AND3-| temp) |- (OR1.input 3) edge[<-]++(-10pt,0)
+%        (AND1.input 1)
+%            edge[<-]++(-10pt,0) 
+%            -- ++(-4,0) coordinate (init) node[anchor=east]{A}
+%            node[pos=0.6](temp){}
+%        (AND1.input 3 -| temp)
+%            ++(0,5pt) edge (temp.center)
+%            arc (90:-90:5pt) |- (N1.input) edge[<-]++(-10pt,0)
+%        (AND2.input 3 -| temp)
+%            ++(0,5pt) edge (AND2.input 1 -| temp)
+%            arc (90:-90:5pt) |- (AND3.input 1) edge[<-]++(-10pt,0)
+%        (AND1.input 3)
+%            edge[<-]++(-10pt,0) 
+%            -- ++(-4,0) coordinate (init) node[anchor=east]{B}
+%            node[pos=0.8](temp){}
+%        (AND2.input 3 -| temp)
+%            edge (temp.center)
+%            edge[->] (AND2.input 3)
+%        (N2.input -| temp)
+%            edge (AND2.input 3 -| temp)
+%            edge[->] (N2.input)
+%        (AND2.input 1)
+%            edge[<-] (N1)
+%        (AND3.input 3)
+%            edge[<-] (N2)
+%        (init)++(0,-7) node[anchor=east]{C} 
+%            -- ++(12,0) coordinate (temp)
+%            -- (AND4.input 3 -| temp)
+%            edge[->] (AND4.input 3);
+%
+%    \end{tikzpicture} 
+%    
+%    \begin{tikzpicture}[
+%        %Environment config
+%        font=\sffamily,
+%        thick,
+%        %Environment styles
+%        GateCfg/.style={
+%            logic gate inputs={normal,normal,normal},
+%            draw,
+%            scale=2
+%        }
+%    ]
+%    \path
+%        (0,0) node[and gate US,GateCfg](AND1){} 
+%            ++ (2,-2) node[and gate US,GateCfg](AND2){} 
+%            ++ (5,1) node[or gate US,GateCfg](OR1){}
+%        (AND1.input 3)
+%            ++ (-1,0) node[not gate US, draw](N1){}
+%        (AND2.input 3)
+%            ++ (-1,0) node[not gate US, draw](N2){}
+%        (AND2.input 1 -| N1)
+%            node[not gate US, draw](N3){};
+%
+%    \draw
+%        (OR1.input 1) -- ++(-1.5,0) |- (AND1.output)
+%        (OR1.input 3) -- ++(-1.5,0) |- (AND2.output)
+%        (N2.output)--(AND2.input 3)
+%        (N1.output)--(AND1.input 3)
+%        (N3.output)--(AND2.input 1)
+%        (AND1.input 1) 
+%            -- ++(-3,0) coordinate (init) node[anchor=east]{p}
+%            node[pos=0.6](temp){}
+%        (N1-| temp)
+%            ++(0,5pt) edge (temp.center)
+%            arc (90:-90:5pt) |- (N3.input)
+%        (init |- N1) node[anchor=east]{q} 
+%            -- (N1.input) node[pos=0.4](temp2){}
+%        (temp2.center) |- (N2.input)
+%        (OR1.output) -- ++(2,0) node [midway,anchor=south]{Output};
+%    \end{tikzpicture} 
+%    
+%
+%\begin{circuitikz} \draw
+%(0,2) node[and port] (myand1) {}
+%(0,0) node[and port] (myand2) {}
+%(2,1) node[xnor port] (myxnor) {}
+%(myand1.out) -- (myxnor.in 1)
+%(myand2.out) -- (myxnor.in 2);
+%\end{circuitikz}
+
+
+
+    \tikzstyle{branch}=[fill,shape=circle,minimum size=3pt,inner sep=0pt]
+\begin{tikzpicture}[label distance=2mm]
+
+    \node (x3) at (0,0) {$A$};
+    \node (x2) at (1,0) {$B$};
+    \node (x1) at (2,0) {$C$};
+    \node (x0) at (3,0) {$D$};
+
+    \node[not gate US, draw, rotate=-90] at ($(x2)+(0.5,-1)$) (Not2) {};
+    \node[not gate US, draw, rotate=-90] at ($(x1)+(0.5,-1)$) (Not1) {};
+    \node[not gate US, draw, rotate=-90] at ($(x0)+(0.5,-1)$) (Not0) {};
+
+    \node[or gate US, draw, logic gate inputs=nnn] at ($(x0)+(2,-2)$) (Or1) {};
+    \node[or gate US, draw, logic gate inputs=nnnn] at ($(Or1)+(0,-1)$) (Or2) {};
+    \node[or gate US, draw, logic gate inputs=nnn] at ($(Or2)+(0,-1)$) (Or3) {};
+    \node[xor gate US, draw, logic gate inputs=nn] at ($(Or3)+(0,-1)$) (Xor1) {};
+    \node[and gate US, draw, logic gate inputs=nn, anchor=input 1] at ($(Or3.output)+(1,0)$) (And1) {};
+    \node[nor gate US, draw, logic gate inputs=nn, anchor=input 1] at ($(Or2.output -| And1.output)+(1,0)$) (Nor1) {};
+    \node[and gate US, draw, logic gate inputs=nn, anchor=input 1] at ($(Or1.output -| Nor1.output)+(1,0)$) (And2) {};
+
+    \foreach \i in {2,1,0}
+    {
+        \path (x\i) -- coordinate (punt\i) (x\i |- Not\i.input);
+        \draw (punt\i) node[branch] {} -| (Not\i.input);
+    }
+    \draw (x3) |- (Or2.input 1);
+    \draw (x3 |- Or1.input 1) node[branch] {} -- (Or1.input 1);
+    \draw (x2) |- (Xor1.input 1);
+    \draw (x2 |- Or3.input 1) node[branch] {} -- (Or3.input 1);
+    \draw (Not2.output) |- (Or2.input 2);
+    \draw (x1) |- (Or3.input 2);
+    \draw (x1 |- Or1.input 2) node[branch] {} -- (Or1.input 2);
+    \draw (Not1.output) |- (Xor1.input 2);
+    \draw (Not1.output |- Or2.input 3) node[branch] {} -- (Or2.input 3);
+    \draw (x0) |- (Or2.input 4);
+    \draw (Not0.output) |- (Or3.input 3);
+    \draw (Not0.output |- Or1.input 3) node[branch] {} -- (Or1.input 3);
+    \draw (Or3.output) -- (And1.input 1);
+    \draw (Xor1.output) -- ([xshift=0.5cm]Xor1.output) |- (And1.input 2);
+    \draw (Or2.output) -- (Nor1.input 1);
+    \draw (And1.output) -- ([xshift=0.5cm]And1.output) |- (Nor1.input 2);
+    \draw (Or1.output) -- (And2.input 1);
+    \draw (Nor1.output) -- ([xshift=0.5cm]Nor1.output) |- (And2.input 2);
+    \draw (And2.output) -- ([xshift=0.5cm]And2.output) node[above] {$Y$};
+
+\end{tikzpicture}    
+    
+%    \begin{tikzpicture}
+%
+%% Circuit style
+%\ctikzset{
+%	%logic ports=ieee,
+%	logic ports/scale=0.8,
+%	logic ports/fill=lightgray
+%}
+%
+%% Logic ports
+%\node[or port] (ORa) at (0,0){};
+%\node[not port] (Noa) at (0,-2){};
+%\node[or port] (ORb) at (0,-4){};
+%
+%\node[not port] (Nob) at (2.5,0){};
+%\node[and port] (ANDa) at (2.5,-3){};
+%
+%\node[or port] (ORc) at (5,-1.5){};
+%
+%% Connection
+%\draw (ORa.out) -- (Nob.in);
+%
+%\draw (Noa.out) -| (ANDa.in 1);
+%\draw (ORb.out) -| (ANDa.in 2);
+%
+%\draw (ANDa.out) -|  (ORc.in 2);
+%\draw (Nob.out) -| (ORc.in 1);
+%\draw (ORc.out) -- ++(1,0) node[near end,above]{Out};
+%
+%\draw (ORa.in 1) -- ++(-1.5,0)node[left](A){A};
+%\draw (ORb.in 2) -- ++(-1.5,0)node[left](C){C};
+%
+%% Jump crossing element
+%\node at (ORa.in 2)
+%[
+%	below,
+%	jump crossing,
+%	rotate=-90,
+%	scale=1.3
+%](X){};
+%
+%\draw (Noa.in) -| (X.east)
+%	(X.west) to[short,-*] (X.west |- ORa.in 1); 
+%
+%\draw ($ (A) !.5! (C) $) node[]{B}
+%	++ (0.4,0) to[short,-*] ++(0.5,0) coordinate(a)
+%	|- (X.south) (a) |- (ORb.in 1);
+%\end{tikzpicture}
+\end{document}

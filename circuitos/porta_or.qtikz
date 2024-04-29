@@ -1,0 +1,29 @@
+﻿% Copyright 2024 by Marcos Laureano (marcos.laureano@ifpr.edu.br)
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+\usetikzlibrary{positioning,shapes.gates.logic.US,arrows.meta}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc} 
+
+\begin{tikzpicture}[
+        thick,
+        >={Stealth[length=12pt]},
+        GateCfg/.style={
+            logic gate inputs={normal,normal,normal},
+            draw,
+            scale=2,
+            on grid
+        }
+    ]
+    \path   node[or gate US,GateCfg](OR){} ;
+
+
+   \draw     (OR.input 1)  edge[<-]++(-10pt,0)   -- ++(-1,0) coordinate (init) node[anchor=east]{A}
+                   (OR.input 3)   edge[<-]++(-10pt,0)   -- ++(-1,0) coordinate (init) node[anchor=east]{B};
+
+   \draw (OR.output) edge[->] ++(1,0) ([xshift=2cm]OR.output) node {$S=A + B$}; 
+
+
+    \end{tikzpicture} 
+

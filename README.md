@@ -38,7 +38,9 @@ Este repositório conterá algumas modelos e testes que fui realizando ao londo 
 > [!TIP]
 > Incluindo o gráfico de Whisker, que é um gráfico com mínimo, média, máximo, mediana e desvio padrão.
 
-[Gráficos de Whisker ](graficos/whisker/)
+[Todos os gráficos](graficos/)
+
+[Gráficos de Whisker](graficos/whisker/)
 
 
 
@@ -60,4 +62,8 @@ Este repositório conterá algumas modelos e testes que fui realizando ao londo 
 
 [Árvore de expansão de Fibonacci](outras_figuras/arvores/fibonacci/)
 
+## Exemplos com circuitos lógicos
+> [!Tip] Arquivos qtikz são editados com o aplicativo Qtikz
+
+[Circuitos lógicos](circuitos/)
 
