@@ -1,0 +1,52 @@
+% Copyright 2025 by Marcos Laureano (marcos.laureano@ifpr.edu.br)
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,mathtools,lmodern,amssymb}
+
+
+\usepackage[portuguese,linesnumbered,inoutnumbered]{algorithm2e}
+
+\SetKw{Kwpasso}{passo}
+
+\SetKwProg{Fn}{Função}{}{}
+\renewcommand{\thealgocf}{} %desativa o contador de algoritmos
+
+\begin{document}
+%    
+%    
+
+\begin{algorithm}[H]
+
+\Inicio{
+   abertos = [Início] \tcp*{Inicialização}
+   fechados = [];\\
+   \BlankLine
+   \tcp{restam estados}
+   \Enqto{abertos $\neq$ []}{ 
+   		remova o estados mais à esquerdas em abertos, chame-o de X
+   		\BlankLine
+   		\tcp{objetivo encontrado}
+   		\Se{X for um objetivo}{ 
+   		\KwRetorna{SUCESSO}} 
+   		\Senao{
+   			gere filhos de X;\\
+   			coloque X em fechados;\\
+           \BlankLine
+   			\tcp{checagem de laços}
+   			descarte filhos de X se já estiverem em abertos ou fechados;
+		   \BlankLine
+   			\tcp{põe na fila} 
+   			coloque os filhos que restam no final à direita de abertos; 
+   		}
+   }
+   \KwRetorna{FALHA} \tcp*{não restam estados}
+}
+\caption{Busca em Amplitude}   
+\end{algorithm}
+
+\end{document}

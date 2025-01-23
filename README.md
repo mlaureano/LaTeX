@@ -34,6 +34,12 @@ Este repositório conterá algumas modelos e testes que fui realizando ao londo 
 
 [Algoritmo PSO com equações](algoritmos/algoritmo_pso/)
 
+[Algoritmo com verbatim](algoritmos/verbatim/)
+
+[Algoritmo Busca em Amplitude (Lugger, 2013](algoritmos/busca_em_amplitude/)
+
+[Algoritmo Busca em Profundidade (Lugger, 2013](algoritmos/busca_em_profundidade/)
+
 ## Exemplos de gráficos
 > [!TIP]
 > Incluindo o gráfico de Whisker, que é um gráfico com mínimo, média, máximo, mediana e desvio padrão.
